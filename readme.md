@@ -51,6 +51,7 @@ root@test:~# cp ajiasu /usr/local/bin/ajiasu
 root@test:~# cat /etc/ajiasu.conf
 user YOUR_USERNAME
 pass YOUR_PASSWORD
+protocol proxy
 ```
 
 
@@ -254,11 +255,11 @@ Read file: nodeid_success.log
 
 # 四、后续
 
-这个代码虽然看起来很拉，但其实没有一点不拉的。
+这个代码虽然看起来很拉，但其实一点也不怎么样。
 
 最初的想法是使用爱加速作为代理池，但貌似只能手动切换单个节点，而Github也没有相关的项目，所以只能自己手搓一个了。官方没有提供API，测试了windows、android和linux三个版本，只有linux下有操作空间。
 
-接下来说说代码整体思路吧，也方便大佬读后有感搓个更好的，到时希望让小弟有机会`Fork`一下。
+接下来说说代码整体思路吧，也方便大佬读后有感搓个更好的，到时希望给小弟一个`Fork`的机会。
 
 **第一步:** 实现 linux程序的基本功能（`another_script.py`）
 

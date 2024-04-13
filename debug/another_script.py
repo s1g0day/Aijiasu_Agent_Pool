@@ -2,7 +2,6 @@ import subprocess
 import random
 
 AJIASU_PATH = "/usr/local/bin/ajiasu"  # 指定ajiasu的路径
-PROTOCOL_INPUT_TEXT = "proxy\n"  # 定义协议类型，\n是必须的相当于输入proxy后的回车确认
 
 def execute_command(command, input_text=None):
     """执行命令行命令并返回输出"""
@@ -25,19 +24,12 @@ def get_available_nodes():
     print("所有节点已写入: log/get_available_nodes.log")
     return nodes
 
-def connect_to_node_0(node_id):
-    """连接到指定节点"""
-    command = [AJIASU_PATH, "connect", node_id]
-    print(f"连接命令: {' '.join(command)}")
-    # 输入proxy作为代理模式
-    execute_command(command, input_text=PROTOCOL_INPUT_TEXT)
-
 def connect_to_node(node_id):
     """连接到指定节点"""
     command = [AJIASU_PATH, "connect", node_id]
     print(f"连接命令: {' '.join(command)}")
     # 输入proxy作为代理模式
-    output = execute_command(command, input_text=PROTOCOL_INPUT_TEXT)
+    output = execute_command(command)
     if "ajiasu stopped. failure" in output:
         print("代理连接失败：服务器不可用于用户组。")
     elif "ajiasu done" in output:
